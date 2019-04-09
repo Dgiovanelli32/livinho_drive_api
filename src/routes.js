@@ -4,6 +4,15 @@ const multerConfig = require('./config/multer');
 
 const Post = require('./models/Post');
 
+// list all images
+routes.get('/posts', async(req, res) => {
+    const posts = await Post.find();
+
+    return res.json(posts);
+})
+
+
+//post new images
 routes.post('/posts', multer(multerConfig).single('file'), async(req, res) => {
 
     const post = await Post.create({
@@ -14,6 +23,15 @@ routes.post('/posts', multer(multerConfig).single('file'), async(req, res) => {
     });
 
     return res.json(post);
+});
+
+
+routes.delete('/post/:id', async(req, res) => {
+    const post = await Post.findById(req.params.id);
+
+    await post.remove();
+
+    return res.send();
 });
 
 
