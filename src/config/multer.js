@@ -10,7 +10,7 @@ module.exports = {
         destination: (req, file, cb) => {
             cb(null, path.resolve(__dirname, '..', '..', 'tmp', 'uploads'));
         },
-        // using the  crypto to not duplicate images
+        // using the crypto to not duplicate images
         filename: (req, file, cb) => {
              crypto.randomBytes(16, (err, hash) => {
                  if (err) cb(err);
@@ -18,7 +18,7 @@ module.exports = {
                  const fileName = `${hash.toString('hex')}-${file.originalname}`;
 
                  cb(null, fileName);
-             });
+             }); 
         },
 
     }),
