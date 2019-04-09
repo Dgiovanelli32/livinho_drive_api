@@ -7,7 +7,10 @@ An API for upload images of didico
 # Dev Enviroment, packages and stuffs
 
 - Nodejs
+- Express
+- Mongoose
 - yarn or npm
-- morgan (optionally)
 - multer 
+- morgan (optionally)
+- path
 - crypto (optionally)
